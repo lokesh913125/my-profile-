@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#06060e" />
+<meta name="description" content="Lokesh Patel — Independent Web Developer, Game Builder & AI Tool Creator from Chhattisgarh, India. 4 live monetized apps. Available for freelance." />
+<meta name="author" content="Lokesh Patel" />
+<title>Lokesh Patel — Web Developer · Game Builder · AI Creator</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Lokesh Patel — Independent Developer · India" />
+<meta property="og:description" content="22-year-old solo dev shipping games, AI tools & Hindi apps. 4 live products. Available for freelance." />
+<meta property="og:type" content="website" />
+
+<!-- Fonts: Inter only, as specified -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<!-- Inline favicon: LP monogram -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%237c6af5'/%3E%3Cstop offset='1' stop-color='%23a394f8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-family='Inter,sans-serif' font-weight='800' font-size='52' fill='white'%3ELP%3C/text%3E%3C/svg%3E" />
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   LOKESH PATEL · PORTFOLIO
+   Theme: Ultra-dark + deep purple. Cinematic.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ---------- CSS RESET / TOKENS ---------- */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+
+:root {
+  --bg: #06060e;
+  --bg-2: #0b0b1a;
+  --surface: #11112a;
+  --surface-2: #16163a;
+  --line: rgba(163,148,248,.12);
+  --line-2: rgba(163,148,248,.22);
+  --ink: #ece9ff;
+  --ink-dim: #a8a3c8;
+  --ink-mute: #6d6a8a;
+  --p-deep: #7c6af5;
+  --p-glow: #a394f8;
+  --p-soft: #c4b9ff;
+  --p-shadow: 0 0 40px rgba(124,106,245,.35);
+  --grad: linear-gradient(135deg,#7c6af5 0%,#a394f8 50%,#c4b9ff 100%);
+  --grad-soft: linear-gradient(135deg,rgba(124,106,245,.18),rgba(195,185,255,.06));
+  --r-sm: 10px;
+  --r: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --shadow: 0 30px 80px -20px rgba(0,0,0,.6),0 8px 24px -8px rgba(124,106,245,.18);
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --ease-back: cubic-bezier(.34,1.56,.64,1);
+}
+
+[data-theme="light"] {
+  --bg: #f7f6ff;
+  --bg-2: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f1eefe;
+  --line: rgba(124,106,245,.18);
+  --line-2: rgba(124,106,245,.32);
+  --ink: #16142e;
+  --ink-dim: #524d77;
+  --ink-mute: #8a85a8;
+  --shadow: 0 20px 60px -20px rgba(124,106,245,.25),0 6px 18px -6px rgba(124,106,245,.15);
+}
+
+html, body { background:var(--bg); color:var(--ink); }
+body {
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  letter-spacing:-.005em;
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  cursor:none; /* hidden, replaced by custom */
+}
+
+/* hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  body { cursor:auto; }
+  .cursor-dot, .cursor-ring { display:none !important; }
+}
+
+a { color:inherit; text-decoration:none; }
+button { font-family:inherit; cursor:none; border:none; background:none; color:inherit; }
+img { max-width:100%; display:block; }
+::selection { background:var(--p-deep); color:#fff; }
+
+/* ---------- BACKDROP LAYERS (fixed, all z=-1 stack) ---------- */
+.bg-grid, .bg-blobs, .bg-particles {
+  position:fixed; inset:0; pointer-events:none; z-index:-1;
+}
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(163,148,248,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(163,148,248,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+          mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  z-index:-2;
+}
+.bg-blobs { z-index:-3; filter: blur(80px); opacity:.85; }
+.bg-blobs span {
+  position:absolute; width:520px; height:520px; border-radius:50%;
+  animation: breath 14s ease-in-out infinite;
+}
+.bg-blobs span:nth-child(1){ background:radial-gradient(circle,#7c6af5,transparent 60%); top:-10%; left:-10%; }
+.bg-blobs span:nth-child(2){ background:radial-gradient(circle,#a394f8,transparent 60%); bottom:-15%; right:-10%; animation-delay:-5s; }
+.bg-blobs span:nth-child(3){ background:radial-gradient(circle,#c4b9ff,transparent 60%); top:40%; left:50%; animation-delay:-9s; opacity:.6; }
+[data-theme="light"] .bg-blobs { opacity:.5; }
+[data-theme="light"] .bg-grid { opacity:.6; }
+@keyframes breath {
+  0%,100% { transform:scale(1) translate(0,0); }
+  50%     { transform:scale(1.15) translate(40px,-30px); }
+}
+.bg-particles canvas { width:100%; height:100%; display:block; }
+
+/* ---------- CUSTOM CURSOR ---------- */
+.cursor-dot, .cursor-ring {
+  position:fixed; top:0; left:0; pointer-events:none; z-index:9999;
+  transform:translate(-50%,-50%);
+  will-change: transform;
+}
+.cursor-dot {
+  width:8px; height:8px; background:var(--p-glow); border-radius:50%;
+  box-shadow:0 0 12px var(--p-glow);
+  transition: transform .15s var(--ease), background .2s;
+}
+.cursor-ring {
+  width:42px; height:42px; border:1.5px solid var(--p-glow); border-radius:50%;
+  transition: transform .25s var(--ease), border-color .25s, width .25s, height .25s;
+}
+.cursor-ring.hover { width:62px; height:62px; border-color:var(--p-soft); }
+.cursor-dot.hover  { transform:translate(-50%,-50%) scale(1.6); background:#fff; }
+
+/* ---------- PAGE LOADER ---------- */
+.loader {
+  position:fixed; inset:0; z-index:10000;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:var(--bg);
+  transition: opacity .8s var(--ease), visibility .8s;
+}
+.loader.gone { opacity:0; visibility:hidden; }
+.loader-mono {
+  width:96px; height:96px; border-radius:24px;
+  background:var(--grad);
+  display:grid; place-items:center;
+  font-weight:900; font-size:44px; color:#fff;
+  letter-spacing:-.03em;
+  box-shadow:var(--p-shadow);
+  animation: monoPulse 1.6s ease-in-out infinite;
+}
+@keyframes monoPulse {
+  0%,100% { transform:scale(1); box-shadow:0 0 40px rgba(124,106,245,.35); }
+  50%     { transform:scale(1.06); box-shadow:0 0 70px rgba(124,106,245,.6); }
+}
+.loader-bar {
+  margin-top:32px; width:240px; height:3px; background:rgba(163,148,248,.15);
+  border-radius:99px; overflow:hidden;
+}
+.loader-bar::after {
+  content:''; display:block; height:100%; width:0;
+  background:var(--grad);
+  animation: fill 1.8s var(--ease) forwards;
+}
+@keyframes fill { to { width:100%; } }
+.loader-text {
+  margin-top:14px; font-size:11px; letter-spacing:.4em;
+  color:var(--ink-dim); text-transform:uppercase; font-weight:500;
+}
+
+/* ---------- SCROLL PROGRESS ---------- */
+.scroll-progress {
+  position:fixed; top:0; left:0; height:3px; width:0;
+  background:var(--grad);
+  z-index:998; transition: width .08s linear;
+  box-shadow: 0 0 10px var(--p-glow);
+}
+
+/* ---------- FUN BAR (top utility bar) ---------- */
+.funbar {
+  position:relative; z-index:50;
+  display:flex; align-items:center; justify-content:center; gap:18px;
+  padding:10px 20px;
+  background:rgba(11,11,26,.6);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+  font-size:12.5px; flex-wrap:wrap;
+  font-weight:500;
+}
+[data-theme="light"] .funbar { background:rgba(255,255,255,.7); }
+.fb-pill {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 14px; border-radius:99px;
+  background:rgba(124,106,245,.1); border:1px solid var(--line);
+  color:var(--ink-dim); transition:all .25s;
+}
+.fb-pill:hover { background:rgba(124,106,245,.18); color:var(--ink); }
+.fb-clock { font-variant-numeric: tabular-nums; font-weight:600; color:var(--p-soft); }
+.fb-avail { cursor:none; }
+.fb-avail.busy { background:rgba(255,80,90,.12); border-color:rgba(255,80,90,.4); color:#ff8b94; }
+.fb-game { background:var(--grad); color:#fff; border-color:transparent; font-weight:600; }
+.fb-game:hover { transform:translateY(-1px); box-shadow:var(--p-shadow); }
+
+/* ---------- NAV ---------- */
+.nav-wrap {
+  position:sticky; top:14px; z-index:60;
+  display:flex; justify-content:center;
+  padding:0 16px; pointer-events:none;
+}
+.nav {
+  pointer-events:auto;
+  display:flex; align-items:center; gap:6px;
+  padding:8px 10px;
+  background:rgba(17,17,42,.6);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid var(--line);
+  border-radius:99px;
+  box-shadow: var(--shadow);
+}
+[data-theme="light"] .nav { background:rgba(255,255,255,.75); }
+.nav-brand {
+  display:flex; align-items:center; gap:8px;
+  padding:6px 14px 6px 8px; font-weight:700; font-size:14px;
+  border-right:1px solid var(--line); margin-right:6px;
+}
+.nav-brand-mono {
+  width:28px; height:28px; border-radius:8px;
+  background:var(--grad); display:grid; place-items:center;
+  font-size:12px; color:#fff; font-weight:900;
+}
+.nav a {
+  padding:8px 14px; font-size:13px; font-weight:500;
+  color:var(--ink-dim); border-radius:99px; transition:all .25s;
+  position:relative;
+}
+.nav a:hover { color:var(--ink); }
+.nav a.active { background:rgba(124,106,245,.18); color:var(--p-soft); }
+.nav-theme {
+  width:34px; height:34px; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(124,106,245,.1); border:1px solid var(--line);
+  margin-left:4px; font-size:14px;
+}
+.nav-theme:hover { background:rgba(124,106,245,.2); }
+@media (max-width: 760px) {
+  .nav-brand { display:none; }
+  .nav a { padding:8px 10px; font-size:12px; }
+  .nav { padding:6px; }
+}
+
+/* ---------- TICKER ---------- */
+.ticker {
+  margin-top:18px;
+  overflow:hidden;
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(124,106,245,.06),transparent);
+  padding:12px 0;
+  position:relative; z-index:5;
+}
+.ticker-track {
+  display:flex; gap:48px; white-space:nowrap;
+  animation: tickerScroll 30s linear infinite;
+  font-size:13px; font-weight:500; color:var(--ink-dim);
+}
+.ticker:hover .ticker-track { animation-play-state:paused; }
+.ticker-track span { display:inline-flex; align-items:center; gap:10px; }
+.ticker-track b { color:var(--p-soft); font-weight:700; }
+.ticker-dot { width:5px; height:5px; background:var(--p-deep); border-radius:50%; }
+@keyframes tickerScroll { to { transform:translateX(-50%); } }
+
+/* ---------- LAYOUT ---------- */
+.wrap { max-width:1240px; margin:0 auto; padding:0 24px; position:relative; }
+section { padding:96px 0; position:relative; }
+@media (max-width:760px) { section { padding:64px 0; } }
+
+.eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:11px; font-weight:600; letter-spacing:.3em;
+  color:var(--p-soft); text-transform:uppercase;
+  padding:6px 14px; border-radius:99px;
+  background:rgba(124,106,245,.1); border:1px solid var(--line);
+  margin-bottom:18px;
+}
+.eyebrow::before {
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:var(--p-glow); box-shadow:0 0 8px var(--p-glow);
+}
+
+.stit {
+  font-size:clamp(34px,5vw,56px);
+  font-weight:800; letter-spacing:-.03em; line-height:1.05;
+  margin-bottom:14px;
+}
+.stit .grad { background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.lede {
+  font-size:clamp(15px,1.4vw,17px); color:var(--ink-dim);
+  max-width:640px; margin-bottom:48px;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  padding-top:64px; padding-bottom:80px;
+  display:grid; grid-template-columns:1.2fr 1fr; gap:64px;
+  align-items:center;
+}
+@media (max-width:920px) { .hero { grid-template-columns:1fr; gap:48px; padding-top:48px; } }
+
+.hero-tag {
+  display:inline-flex; gap:8px; align-items:center;
+  padding:6px 14px; border-radius:99px;
+  background:rgba(124,106,245,.1); border:1px solid var(--line);
+  font-size:12px; color:var(--p-soft); font-weight:500;
+  margin-bottom:24px;
+}
+.hero-tag .live-dot {
+  width:7px; height:7px; border-radius:50%; background:#3ddc7c;
+  box-shadow:0 0 0 0 rgba(61,220,124,.7);
+  animation: livePulse 1.8s infinite;
+}
+@keyframes livePulse {
+  70%  { box-shadow:0 0 0 8px rgba(61,220,124,0); }
+  100% { box-shadow:0 0 0 0   rgba(61,220,124,0); }
+}
+
+.hero h1 {
+  font-size:clamp(44px,7vw,84px);
+  font-weight:900; letter-spacing:-.04em; line-height:.98;
+  margin-bottom:20px;
+}
+.hero h1 .shimmer {
+  background: linear-gradient(110deg, var(--p-deep) 30%, #fff 50%, var(--p-glow) 70%);
+  background-size: 200% auto;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation: shimmer 4s linear infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.hero-sub {
+  font-size:clamp(16px,1.6vw,19px);
+  color:var(--ink-dim); max-width:560px; margin-bottom:14px;
+  min-height:54px;
+}
+.typing { color:var(--p-soft); font-weight:600; }
+.typing::after {
+  content:'|'; color:var(--p-glow);
+  animation: caret 1s steps(2) infinite; margin-left:2px;
+}
+@keyframes caret { 50% { opacity:0; } }
+
+.hero-meta { color:var(--ink-mute); font-size:14px; margin-bottom:36px; }
+.hero-meta b { color:var(--ink); font-weight:600; }
+
+.btn-row { display:flex; flex-wrap:wrap; gap:14px; margin-bottom:48px; }
+.btn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 22px; border-radius:99px; font-size:14px; font-weight:600;
+  transition: transform .35s var(--ease), box-shadow .35s, background .25s;
+  position:relative; will-change: transform;
+  border:1px solid var(--line);
+}
+.btn-primary {
+  background:var(--grad); color:#fff; border-color:transparent;
+  box-shadow:0 12px 30px -8px rgba(124,106,245,.5);
+}
+.btn-primary:hover { box-shadow:0 18px 50px -10px rgba(124,106,245,.7); }
+.btn-ghost {
+  background:rgba(124,106,245,.08); color:var(--ink);
+}
+.btn-ghost:hover { background:rgba(124,106,245,.18); border-color:var(--line-2); }
+
+.stats-row {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+  padding-top:32px; border-top:1px solid var(--line);
+}
+.stat-num { font-size:clamp(24px,3vw,34px); font-weight:800; letter-spacing:-.02em; }
+.stat-num .grad { background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.stat-lbl { font-size:11px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:.15em; font-weight:500; margin-top:4px; }
+@media (max-width:560px) { .stats-row { grid-template-columns:repeat(2,1fr); gap:18px; } }
+
+/* hero card (avatar) */
+.hero-card {
+  position:relative; aspect-ratio:1/1; max-width:440px; margin:0 auto;
+  display:grid; place-items:center;
+  perspective:1000px;
+}
+.avatar-wrap {
+  position:relative; width:78%; aspect-ratio:1/1;
+  transform-style:preserve-3d;
+  transition: transform .2s ease-out;
+}
+.avatar {
+  position:absolute; inset:14%;
+  border-radius:50%;
+  background: var(--grad);
+  display:grid; place-items:center;
+  font-size:clamp(60px,9vw,90px); font-weight:900; color:#fff;
+  letter-spacing:-.04em;
+  box-shadow:0 30px 80px -10px rgba(124,106,245,.5), inset 0 0 60px rgba(255,255,255,.1);
+  overflow:hidden;
+}
+.avatar img { width:100%; height:100%; object-fit:cover; }
+.avatar-pulse {
+  position:absolute; inset:14%; border-radius:50%;
+  box-shadow:0 0 0 0 rgba(124,106,245,.5);
+  animation: avPulse 2.6s ease-out infinite;
+}
+@keyframes avPulse {
+  0%   { box-shadow:0 0 0 0   rgba(124,106,245,.6); }
+  100% { box-shadow:0 0 0 50px rgba(124,106,245,0); }
+}
+.ring {
+  position:absolute; inset:0; border-radius:50%;
+  border:1.5px dashed rgba(163,148,248,.4);
+  animation: spin 24s linear infinite;
+}
+.ring.r2 {
+  inset:7%; border-style:dashed; border-color:rgba(195,185,255,.25);
+  animation: spin 36s linear infinite reverse;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+.online-dot {
+  position:absolute; bottom:18%; right:18%;
+  width:22px; height:22px; border-radius:50%;
+  background:#3ddc7c; border:4px solid var(--bg);
+  box-shadow:0 0 14px rgba(61,220,124,.7);
+  z-index:3;
+}
+
+.hero-floats { position:absolute; inset:0; pointer-events:none; }
+.hero-float {
+  position:absolute; padding:8px 14px; border-radius:99px;
+  background:rgba(17,17,42,.85); backdrop-filter:blur(10px);
+  border:1px solid var(--line-2); font-size:12px; font-weight:600;
+  display:inline-flex; gap:8px; align-items:center;
+  animation: floaty 5s ease-in-out infinite;
+}
+[data-theme="light"] .hero-float { background:rgba(255,255,255,.9); }
+.hero-float.f1 { top:12%; left:0; animation-delay:0s; }
+.hero-float.f2 { top:46%; right:-6%; animation-delay:-1.6s; }
+.hero-float.f3 { bottom:8%; left:6%; animation-delay:-3.2s; }
+@keyframes floaty {
+  0%,100% { transform:translateY(0); }
+  50%     { transform:translateY(-12px); }
+}
+
+/* ---------- ABOUT ---------- */
+.about-grid {
+  display:grid; grid-template-columns: 1.3fr 1fr; gap:48px;
+}
+@media (max-width:880px) { .about-grid { grid-template-columns:1fr; gap:36px; } }
+.about-text p { color:var(--ink-dim); margin-bottom:18px; font-size:15.5px; line-height:1.75; }
+.about-text p b { color:var(--ink); font-weight:600; }
+
+.timeline {
+  margin-top:32px; padding-left:22px; position:relative;
+  border-left:1px dashed var(--line-2);
+}
+.tl-item { position:relative; padding-bottom:24px; }
+.tl-item::before {
+  content:''; position:absolute; left:-28px; top:6px;
+  width:11px; height:11px; border-radius:50%;
+  background:var(--p-deep); box-shadow:0 0 0 4px rgba(124,106,245,.18);
+}
+.tl-year { font-size:12px; color:var(--p-soft); font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.tl-text { font-size:14.5px; color:var(--ink-dim); margin-top:4px; }
+
+.info-grid { display:grid; gap:12px; }
+.info-row {
+  display:flex; align-items:center; gap:14px;
+  padding:16px 18px;
+  background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--r);
+  transition: all .3s var(--ease);
+  position:relative; overflow:hidden;
+}
+.info-row::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:0;
+  background:var(--grad); transition:width .3s var(--ease);
+}
+.info-row:hover {
+  transform: translateX(4px);
+  border-color:var(--line-2);
+  background:var(--surface-2);
+}
+.info-row:hover::before { width:4px; }
+.info-icon {
+  width:38px; height:38px; border-radius:10px;
+  background:rgba(124,106,245,.12); border:1px solid var(--line);
+  display:grid; place-items:center; font-size:16px; flex-shrink:0;
+}
+.info-key { font-size:11px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:.1em; font-weight:500; }
+.info-val { font-size:14px; color:var(--ink); font-weight:500; margin-top:2px; }
+
+/* ---------- SKILLS ---------- */
+.skill-grid {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:14px 32px;
+}
+@media (max-width:680px) { .skill-grid { grid-template-columns:1fr; } }
+.skill-item { padding:6px 0; }
+.skill-head { display:flex; justify-content:space-between; margin-bottom:8px; }
+.skill-name { font-size:14px; font-weight:600; }
+.skill-pct { font-size:12px; font-weight:600; color:var(--p-soft); font-variant-numeric:tabular-nums; }
+.skill-track { height:7px; background:rgba(124,106,245,.08); border-radius:99px; overflow:hidden; position:relative; }
+.skill-bar {
+  height:100%; width:0; border-radius:99px;
+  background:var(--grad); position:relative;
+  transition: width 1.2s var(--ease);
+}
+.skill-bar::after {
+  content:''; position:absolute; right:-2px; top:50%; transform:translateY(-50%);
+  width:10px; height:10px; border-radius:50%; background:#fff;
+  box-shadow:0 0 12px var(--p-glow);
+}
+.tag-cloud { margin-top:32px; display:flex; flex-wrap:wrap; gap:8px; }
+.tag {
+  padding:8px 14px; border-radius:99px;
+  background:rgba(124,106,245,.08); border:1px solid var(--line);
+  font-size:12.5px; font-weight:500; color:var(--ink-dim);
+  transition:all .25s;
+}
+.tag:hover { background:rgba(124,106,245,.2); color:var(--ink); transform:translateY(-2px); }
+
+/* ---------- PROJECTS ---------- */
+.proj-filter {
+  display:flex; gap:8px; margin-bottom:32px; flex-wrap:wrap;
+}
+.filter-btn {
+  padding:9px 18px; border-radius:99px; font-size:13px; font-weight:500;
+  background:rgba(124,106,245,.06); border:1px solid var(--line); color:var(--ink-dim);
+  transition:all .25s;
+}
+.filter-btn:hover { color:var(--ink); }
+.filter-btn.active { background:var(--grad); color:#fff; border-color:transparent; }
+
+.proj-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px;
+}
+.proj-card {
+  position:relative; padding:28px;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-lg); overflow:hidden;
+  transition: transform .4s var(--ease), border-color .3s, background .3s;
+  cursor:none;
+}
+.proj-card::before { /* radial mouse glow */
+  content:''; position:absolute; inset:0; opacity:0;
+  background: radial-gradient(400px circle at var(--mx,50%) var(--my,50%), rgba(124,106,245,.18), transparent 50%);
+  transition: opacity .35s;
+  pointer-events:none;
+}
+.proj-card:hover { transform:translateY(-6px); border-color:var(--line-2); background:var(--surface-2); }
+.proj-card:hover::before { opacity:1; }
+.proj-card::after { /* left accent slide */
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--grad); transform:scaleY(0); transform-origin:bottom; transition:transform .4s var(--ease);
+}
+.proj-card:hover::after { transform:scaleY(1); transform-origin:top; }
+
+.proj-emoji {
+  display:inline-flex; width:52px; height:52px; border-radius:14px;
+  background: var(--grad-soft); border:1px solid var(--line);
+  align-items:center; justify-content:center; font-size:26px;
+  margin-bottom:18px;
+  transition: transform .4s var(--ease-back);
+}
+.proj-card:hover .proj-emoji { transform: rotate(-8deg) scale(1.12); }
+
+.proj-status {
+  position:absolute; top:24px; right:24px;
+  font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  padding:4px 10px; border-radius:99px;
+}
+.proj-status.live { background:rgba(61,220,124,.12); color:#3ddc7c; border:1px solid rgba(61,220,124,.3); }
+.proj-status.dev  { background:rgba(255,180,80,.12); color:#ffb450; border:1px solid rgba(255,180,80,.3); }
+
+.proj-title { font-size:20px; font-weight:700; letter-spacing:-.01em; margin-bottom:6px; }
+.proj-tag { font-size:12px; color:var(--p-soft); font-weight:500; margin-bottom:14px; }
+.proj-desc { font-size:14px; color:var(--ink-dim); line-height:1.65; margin-bottom:20px; }
+
+.proj-stack { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.proj-stack span {
+  font-size:11px; padding:4px 10px; border-radius:6px;
+  background:rgba(124,106,245,.1); color:var(--ink-dim);
+  border:1px solid var(--line);
+}
+
+.proj-link {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:600; color:var(--p-soft);
+  transition: gap .25s;
+}
+.proj-link:hover { gap:14px; }
+.proj-link svg { width:14px; height:14px; }
+
+/* ---------- HIRE / FREELANCE ---------- */
+.price-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;
+}
+.price-card {
+  position:relative; padding:28px;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+  display:flex; flex-direction:column;
+  transition:all .35s var(--ease);
+}
+.price-card.popular { border-color:var(--p-deep); box-shadow:0 0 0 1px var(--p-deep), 0 30px 80px -20px rgba(124,106,245,.4); }
+.price-card.popular::before {
+  content:'⭐ Most Popular'; position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+  font-size:11px; font-weight:700; letter-spacing:.08em;
+  background:var(--grad); color:#fff;
+  padding:5px 14px; border-radius:99px;
+  white-space:nowrap;
+}
+.price-card:hover { transform:translateY(-4px); }
+.price-icon { font-size:30px; margin-bottom:14px; }
+.price-name { font-size:17px; font-weight:700; margin-bottom:6px; }
+.price-amt {
+  font-size:28px; font-weight:800; letter-spacing:-.02em;
+  background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  margin-bottom:4px;
+}
+.price-time { font-size:12px; color:var(--ink-mute); margin-bottom:18px; font-weight:500; }
+.price-feat { list-style:none; margin-bottom:24px; flex-grow:1; }
+.price-feat li {
+  font-size:13.5px; color:var(--ink-dim); padding:6px 0;
+  display:flex; gap:8px; align-items:flex-start;
+}
+.price-feat li::before {
+  content:'✓'; color:var(--p-glow); font-weight:700; flex-shrink:0;
+}
+.price-btn {
+  display:flex; justify-content:center; align-items:center; gap:8px;
+  padding:12px; border-radius:12px; font-size:13px; font-weight:600;
+  background:rgba(124,106,245,.1); border:1px solid var(--line); color:var(--ink);
+  transition:all .3s; will-change:transform;
+}
+.price-btn:hover { background:var(--grad); border-color:transparent; color:#fff; }
+
+/* ---------- UPCOMING ---------- */
+.upcoming-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px;
+}
+.upcoming-card {
+  padding:22px; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--r);
+  transition:all .3s;
+}
+.upcoming-card:hover { border-color:var(--line-2); transform:translateY(-3px); }
+.up-head { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+.up-num {
+  width:30px; height:30px; border-radius:8px;
+  background:rgba(124,106,245,.15); display:grid; place-items:center;
+  font-size:12px; font-weight:700; color:var(--p-soft);
+}
+.up-name { font-size:15px; font-weight:700; flex-grow:1; }
+.up-pct { font-size:12px; font-weight:700; color:var(--p-soft); font-variant-numeric:tabular-nums; }
+.up-track { height:6px; background:rgba(124,106,245,.08); border-radius:99px; overflow:hidden; }
+.up-bar { height:100%; width:0; background:var(--grad); border-radius:99px; transition: width 1.2s var(--ease); }
+.up-desc { font-size:12.5px; color:var(--ink-mute); margin-top:10px; }
+
+/* ---------- GOALS ---------- */
+.goals-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px;
+}
+.goal-card {
+  padding:24px; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--r);
+  display:flex; gap:16px; align-items:flex-start;
+  transition:all .3s;
+}
+.goal-card:hover { background:var(--surface-2); transform:translateY(-3px); border-color:var(--line-2); }
+.goal-icon {
+  width:42px; height:42px; border-radius:12px;
+  background:var(--grad-soft); border:1px solid var(--line);
+  display:grid; place-items:center; font-size:20px; flex-shrink:0;
+}
+.goal-text { font-size:14px; line-height:1.55; color:var(--ink-dim); }
+.goal-text b { color:var(--ink); font-weight:600; display:block; font-size:14.5px; margin-bottom:3px; }
+
+/* ---------- CONTACT ---------- */
+.contact-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:36px; }
+@media (max-width:880px) { .contact-grid { grid-template-columns:1fr; } }
+.cwa {
+  display:flex; flex-direction:column; align-items:flex-start;
+  padding:36px;
+  background: linear-gradient(140deg,rgba(124,106,245,.18),rgba(195,185,255,.04));
+  border:1px solid var(--line-2); border-radius:var(--r-lg);
+  position:relative; overflow:hidden;
+}
+.cwa::before {
+  content:''; position:absolute; top:-40%; right:-20%;
+  width:300px; height:300px; border-radius:50%;
+  background:radial-gradient(circle,var(--p-deep),transparent 60%);
+  opacity:.4; filter:blur(40px);
+}
+.cwa-eyebrow { font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--p-soft); font-weight:600; margin-bottom:12px; }
+.cwa-h { font-size:clamp(26px,3vw,36px); font-weight:800; letter-spacing:-.02em; line-height:1.1; margin-bottom:14px; }
+.cwa-p { font-size:14.5px; color:var(--ink-dim); margin-bottom:26px; max-width:440px; }
+.cwa-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 22px; border-radius:99px;
+  background:#25D366; color:#fff; font-size:14px; font-weight:700;
+  box-shadow:0 12px 30px -8px rgba(37,211,102,.5);
+  transition:all .35s; will-change:transform;
+  position:relative; z-index:1;
+}
+.cwa-btn:hover { box-shadow:0 18px 50px -10px rgba(37,211,102,.7); }
+
+.contact-links { display:grid; gap:10px; }
+.contact-link {
+  display:flex; align-items:center; gap:14px;
+  padding:18px 20px;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  transition:all .3s;
+}
+.contact-link:hover { background:var(--surface-2); border-color:var(--line-2); transform:translateX(4px); }
+.cl-icon {
+  width:42px; height:42px; border-radius:12px; flex-shrink:0;
+  background:var(--grad-soft); display:grid; place-items:center; font-size:18px;
+}
+.cl-key { font-size:11px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:.12em; font-weight:500; }
+.cl-val { font-size:14px; font-weight:600; word-break:break-all; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  padding:48px 0 32px;
+  border-top:1px solid var(--line);
+  text-align:center;
+  color:var(--ink-mute); font-size:13px;
+}
+footer .heart { color:var(--p-glow); animation:heart 1.4s ease-in-out infinite; display:inline-block; }
+@keyframes heart { 50% { transform:scale(1.25); } }
+
+/* ---------- SUGGESTION WIDGET ---------- */
+.sg-btn {
+  position:fixed; bottom:24px; right:24px; z-index:90;
+  display:inline-flex; gap:8px; align-items:center;
+  padding:12px 18px; border-radius:99px;
+  background:var(--grad); color:#fff; font-size:13px; font-weight:600;
+  box-shadow:0 14px 34px -10px rgba(124,106,245,.6);
+  animation: sgBounce 3s ease-in-out infinite;
+}
+@keyframes sgBounce {
+  0%,100% { transform:translateY(0); }
+  50%     { transform:translateY(-6px); }
+}
+.sg-modal {
+  position:fixed; inset:0; z-index:200;
+  background:rgba(0,0,0,.7); backdrop-filter:blur(8px);
+  display:none; align-items:center; justify-content:center; padding:20px;
+}
+.sg-modal.show { display:flex; animation:fadeIn .3s; }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+.sg-card {
+  width:100%; max-width:480px;
+  background:var(--surface); border:1px solid var(--line-2);
+  border-radius:var(--r-lg); padding:32px;
+  box-shadow:var(--shadow);
+}
+.sg-card h3 { font-size:22px; font-weight:800; letter-spacing:-.02em; margin-bottom:8px; }
+.sg-card p { font-size:13.5px; color:var(--ink-dim); margin-bottom:18px; }
+.sg-card textarea {
+  width:100%; min-height:130px; padding:14px;
+  background:var(--bg); border:1px solid var(--line); border-radius:var(--r);
+  color:var(--ink); font-family:inherit; font-size:14px; resize:vertical;
+  outline:none; transition: border-color .25s;
+}
+.sg-card textarea:focus { border-color:var(--p-deep); }
+.sg-actions { display:flex; gap:10px; margin-top:18px; }
+.sg-send { flex:1; padding:13px; background:var(--grad); color:#fff; border-radius:12px; font-weight:600; font-size:13.5px; }
+.sg-cancel { padding:13px 22px; background:rgba(124,106,245,.08); color:var(--ink); border-radius:12px; font-weight:600; font-size:13.5px; border:1px solid var(--line); }
+
+/* ---------- EASTER EGG ---------- */
+.egg {
+  position:fixed; inset:0; z-index:300;
+  background:rgba(6,6,14,.92); backdrop-filter:blur(20px);
+  display:none; align-items:center; justify-content:center; flex-direction:column;
+  text-align:center; gap:20px;
+}
+.egg.show { display:flex; animation:fadeIn .4s; }
+.egg-emoji { font-size:120px; animation: spinBig 2s linear infinite; }
+@keyframes spinBig { to { transform:rotate(360deg); } }
+.egg h2 { font-size:36px; font-weight:900; letter-spacing:-.02em; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.egg p { font-size:16px; color:var(--ink-dim); }
+
+/* ---------- MINI GAME ---------- */
+.mg {
+  position:fixed; inset:0; z-index:250;
+  background:rgba(6,6,14,.96); backdrop-filter:blur(20px);
+  display:none; flex-direction:column; align-items:center; justify-content:center; padding:20px;
+}
+.mg.show { display:flex; animation:fadeIn .3s; }
+.mg-head { display:flex; gap:24px; margin-bottom:20px; align-items:center; flex-wrap:wrap; justify-content:center; }
+.mg-stat {
+  padding:10px 18px; border-radius:99px;
+  background:rgba(124,106,245,.15); border:1px solid var(--line-2);
+  font-weight:700; font-size:14px;
+}
+.mg-stat b { color:var(--p-soft); margin-left:6px; font-variant-numeric:tabular-nums; }
+.mg-canvas {
+  background:linear-gradient(180deg, #0c0c20 0%, #1a1638 100%);
+  border:2px solid var(--p-deep); border-radius:var(--r-lg);
+  box-shadow:0 0 60px -10px rgba(124,106,245,.5);
+  max-width:100%; height:auto;
+}
+.mg-actions { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; justify-content:center; }
+.mg-btn { padding:11px 20px; border-radius:99px; font-weight:600; font-size:13px; }
+.mg-btn.primary { background:var(--grad); color:#fff; }
+.mg-btn.ghost { background:rgba(124,106,245,.12); border:1px solid var(--line-2); color:var(--ink); }
+.mg-result { font-size:18px; font-weight:700; margin-top:14px; min-height:24px; }
+.mg-result .grad { background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+/* ---------- REVEAL ANIMATIONS ---------- */
+.reveal { opacity:0; transform:translateY(40px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in { opacity:1; transform:none; }
+.reveal-l { opacity:0; transform:translateX(-50px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal-l.in { opacity:1; transform:none; }
+.reveal-stagger > * { opacity:0; transform:translateY(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal-stagger.in > * { opacity:1; transform:none; }
+.reveal-stagger.in > *:nth-child(1){ transition-delay:.05s; }
+.reveal-stagger.in > *:nth-child(2){ transition-delay:.12s; }
+.reveal-stagger.in > *:nth-child(3){ transition-delay:.19s; }
+.reveal-stagger.in > *:nth-child(4){ transition-delay:.26s; }
+.reveal-stagger.in > *:nth-child(5){ transition-delay:.33s; }
+.reveal-stagger.in > *:nth-child(6){ transition-delay:.40s; }
+.reveal-stagger.in > *:nth-child(7){ transition-delay:.47s; }
+.reveal-stagger.in > *:nth-child(8){ transition-delay:.54s; }
+.reveal-stagger.in > *:nth-child(9){ transition-delay:.60s; }
+.reveal-stagger.in > *:nth-child(10){ transition-delay:.66s; }
+
+/* ---------- ACCESSIBILITY ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:.01ms !important; scroll-behavior:auto !important;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Backdrop layers -->
+<div class="bg-blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-particles" aria-hidden="true"><canvas id="particleCanvas"></canvas></div>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cRing" aria-hidden="true"></div>
+
+<!-- Page loader -->
+<div class="loader" id="loader">
+  <div class="loader-mono">LP</div>
+  <div class="loader-bar"></div>
+  <div class="loader-text">Loading Portfolio</div>
+</div>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Fun bar -->
+<div class="funbar">
+  <span class="fb-pill"><span>🇮🇳 IST</span><span class="fb-clock" id="clock">--:--:--</span></span>
+  <span class="fb-pill" id="visitorPill">👁️ <span id="visitorCount">…</span> visitors</span>
+  <button class="fb-pill fb-avail" id="availToggle" type="button">✅ Available for Freelance</button>
+  <button class="fb-pill fb-game" id="openGame" type="button">🎮 Play Mini Game</button>
+</div>
+
+<!-- Nav -->
+<div class="nav-wrap">
+  <nav class="nav" id="nav" aria-label="Primary">
+    <div class="nav-brand">
+      <div class="nav-brand-mono">LP</div>
+      <span>Lokesh</span>
+    </div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Work</a>
+    <a href="#hire">Hire</a>
+    <a href="#contact">Contact</a>
+    <button class="nav-theme" id="themeToggle" type="button" aria-label="Toggle theme">🌙</button>
+  </nav>
+</div>
+
+<!-- Live ticker -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span><span class="ticker-dot"></span> <b>4 LIVE PROJECTS</b> deployed on Vercel</span>
+    <span><span class="ticker-dot"></span> Currently building <b>SHADOWFIST v2</b> · 65%</span>
+    <span><span class="ticker-dot"></span> Now booking <b>December 2025</b> projects</span>
+    <span><span class="ticker-dot"></span> <b>ZenFit</b> Android launching on Play Store</span>
+    <span><span class="ticker-dot"></span> Open for AI tool collabs <b>Claude API</b></span>
+    <span><span class="ticker-dot"></span> Hindi document tools from <b>₹999</b></span>
+    <!-- duplicate for seamless loop -->
+    <span><span class="ticker-dot"></span> <b>4 LIVE PROJECTS</b> deployed on Vercel</span>
+    <span><span class="ticker-dot"></span> Currently building <b>SHADOWFIST v2</b> · 65%</span>
+    <span><span class="ticker-dot"></span> Now booking <b>December 2025</b> projects</span>
+    <span><span class="ticker-dot"></span> <b>ZenFit</b> Android launching on Play Store</span>
+    <span><span class="ticker-dot"></span> Open for AI tool collabs <b>Claude API</b></span>
+    <span><span class="ticker-dot"></span> Hindi document tools from <b>₹999</b></span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero wrap" id="home">
+  <div class="hero-text">
+    <div class="hero-tag"><span class="live-dot"></span> Independent Developer · Chhattisgarh, India</div>
+    <h1>
+      Hi, I'm <span class="shimmer">Lokesh</span><br>
+      I ship things that <em style="font-style:italic;font-weight:400;color:var(--ink-dim);">earn</em>.
+    </h1>
+    <p class="hero-sub">
+      <span class="typing" id="typing">Web Developer</span>
+    </p>
+    <p class="hero-meta">
+      22 yrs old · <b>B.Com Final Year</b> at SNPV University, Raigarh ·
+      Solo-shipping <b>games</b>, <b>AI tools</b> &amp; <b>Hindi apps</b> from a small town in India.
+    </p>
+
+    <div class="btn-row">
+      <a href="#projects" class="btn btn-primary magnetic">
+        See My Work →
+      </a>
+      <a href="https://wa.me/919131257780?text=Hi%20Lokesh%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener" class="btn btn-ghost magnetic">
+        💬 WhatsApp Me
+      </a>
+      <a href="https://github.com/lokesh913125" target="_blank" rel="noopener" class="btn btn-ghost magnetic">
+        ⚡ GitHub
+      </a>
+      <a href="#hire" class="btn btn-ghost magnetic">
+        💼 Hire Me
+      </a>
+    </div>
+
+    <div class="stats-row">
+      <div><div class="stat-num"><span class="grad" data-count="4">0</span>+</div><div class="stat-lbl">Live Apps</div></div>
+      <div><div class="stat-num"><span class="grad" data-count="10">0</span>+</div><div class="stat-lbl">Projects Shipped</div></div>
+      <div><div class="stat-num"><span class="grad" data-count="3">0</span>+</div><div class="stat-lbl">Years Coding</div></div>
+      <div><div class="stat-num"><span class="grad" data-count="100">0</span>%</div><div class="stat-lbl">Self-Taught</div></div>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="avatar-wrap" id="tiltCard">
+      <div class="ring"></div>
+      <div class="ring r2"></div>
+      <div class="avatar-pulse"></div>
+      <div class="avatar" id="avatar">LP</div>
+      <div class="online-dot" title="Available"></div>
+
+      <div class="hero-floats">
+        <div class="hero-float f1">⚡ <span>Fast Builder</span></div>
+        <div class="hero-float f2">🎮 <span>30+ Games</span></div>
+        <div class="hero-float f3">💜 <span>Indian Market</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="wrap">
+  <div class="reveal">
+    <div class="eyebrow">about me</div>
+    <h2 class="stit"><span class="scramble">The story so far.</span></h2>
+    <p class="lede">From a small town in Chhattisgarh, building global-quality products with nothing but vanilla JS, late nights, and a stubborn refusal to use frameworks.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm <b>Lokesh Patel</b>, a 22-year-old self-taught developer from <b>Chandrapur, Chhattisgarh</b>. Currently in the final year of my B.Com at Chandrapur College (SNPV University, Raigarh) — but my real classroom is the browser console.</p>
+      <p>I build complete, deployable products end-to-end: <b>browser games</b>, <b>AI-powered tools</b>, <b>Hindi document apps</b>, and <b>fitness trackers</b>. No frameworks. Just HTML, CSS, vanilla JS — single-file builds shipped to Vercel.</p>
+      <p>What makes my work different: I build for <b>India first</b>. Hindi UIs, Razorpay payments, Indian foods in the fitness DB, IPL career mode in the cricket game. Then I take those products global.</p>
+      <p>Right now I have <b>4 live monetized apps</b>, 6 more on GitHub, and 10 in the pipeline. The goal? Go full-time as an independent developer — and ship the <b>HOPE manga universe</b> along the way.</p>
+
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-year">2023</div><div class="tl-text">First projects on GitHub Pages — Hindi tools, AdSense experiments, learning the loop.</div></div>
+        <div class="tl-item"><div class="tl-year">2024 · Early</div><div class="tl-text">FitTrack Pro, IPL Super AI, Poor to Rich — first taste of monetization &amp; idle game design.</div></div>
+        <div class="tl-item"><div class="tl-year">2024 · Mid</div><div class="tl-text">GameHub (30+ games, single file), SHADOWFIST 3D, Cricket Career, ResumeKit Pro.</div></div>
+        <div class="tl-item"><div class="tl-year">2025</div><div class="tl-text">4 live monetized apps · subscriptions live · Android APK · 10 more projects in pipeline.</div></div>
+      </div>
+    </div>
+
+    <div class="info-grid reveal-stagger">
+      <div class="info-row"><div class="info-icon">📍</div><div><div class="info-key">Location</div><div class="info-val">Chandrapur, Chhattisgarh</div></div></div>
+      <div class="info-row"><div class="info-icon">🎓</div><div><div class="info-key">Education</div><div class="info-val">B.Com Final Year · SNPV University</div></div></div>
+      <div class="info-row"><div class="info-icon">💼</div><div><div class="info-key">Status</div><div class="info-val">Available for Freelance</div></div></div>
+      <div class="info-row"><div class="info-icon">⚡</div><div><div class="info-key">Stack</div><div class="info-val">HTML · CSS · Vanilla JS · Canvas · Three.js</div></div></div>
+      <div class="info-row"><div class="info-icon">🚀</div><div><div class="info-key">Deploy</div><div class="info-val">Vercel · GitHub Pages</div></div></div>
+      <div class="info-row"><div class="info-icon">💰</div><div><div class="info-key">Payments</div><div class="info-val">Razorpay · Adsterra</div></div></div>
+      <div class="info-row"><div class="info-icon">🤖</div><div><div class="info-key">AI</div><div class="info-val">Claude API integration</div></div></div>
+      <div class="info-row"><div class="info-icon">🌐</div><div><div class="info-key">Languages</div><div class="info-val">Hindi · English · Hinglish</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="wrap">
+  <div class="reveal">
+    <div class="eyebrow">capabilities</div>
+    <h2 class="stit"><span class="scramble">Skills &amp; tools.</span></h2>
+    <p class="lede">Three years of solo shipping. Real numbers, not vanity metrics — these are the percentages I'd actually trust myself with on a paid project.</p>
+  </div>
+
+  <div class="skill-grid reveal" id="skillGrid">
+    <!-- filled by JS for cleaner markup, but also hard-coded as fallback -->
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">HTML5 / CSS3</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-bar" data-pct="95"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">JavaScript (Vanilla)</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-bar" data-pct="85"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Canvas API</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-bar" data-pct="80"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">PWA / Responsive</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-bar" data-pct="88"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Browser Games</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-bar" data-pct="90"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Game AI</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-bar" data-pct="78"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Three.js</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-bar" data-pct="65"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Vercel + GitHub</span><span class="skill-pct">92%</span></div><div class="skill-track"><div class="skill-bar" data-pct="92"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Claude API</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-bar" data-pct="75"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Razorpay Integration</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-bar" data-pct="70"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Monetization Strategy</span><span class="skill-pct">82%</span></div><div class="skill-track"><div class="skill-bar" data-pct="82"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Indian Market Insight</span><span class="skill-pct">93%</span></div><div class="skill-track"><div class="skill-bar" data-pct="93"></div></div></div>
+    <div class="skill-item"><div class="skill-head"><span class="skill-name">Ads / Affiliate</span><span class="skill-pct">72%</span></div><div class="skill-track"><div class="skill-bar" data-pct="72"></div></div></div>
+  </div>
+
+  <div class="tag-cloud reveal">
+    <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+    <span class="tag">Canvas API</span><span class="tag">Three.js</span><span class="tag">PWA</span>
+    <span class="tag">LocalStorage</span><span class="tag">Vercel</span><span class="tag">GitHub Pages</span>
+    <span class="tag">Razorpay</span><span class="tag">Adsterra</span><span class="tag">Google AdSense</span>
+    <span class="tag">Claude API</span><span class="tag">Service Workers</span>
+    <span class="tag">Hindi UI</span><span class="tag">Game Design</span><span class="tag">Single-file Builds</span>
+    <span class="tag">Mobile-first</span><span class="tag">Glassmorphism</span><span class="tag">SEO</span>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="wrap">
+  <div class="reveal">
+    <div class="eyebrow">selected work</div>
+    <h2 class="stit"><span class="scramble">Things I've built.</span></h2>
+    <p class="lede">4 live products. 6 more on GitHub. Every one shipped solo, end-to-end — design, build, deploy, monetize.</p>
+  </div>
+
+  <div class="proj-filter reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="apps">Apps</button>
+    <button class="filter-btn" data-filter="games">Games</button>
+    <button class="filter-btn" data-filter="tools">Tools</button>
+  </div>
+
+  <div class="proj-grid reveal-stagger" id="projGrid">
+
+    <a class="proj-card" data-cat="tools" href="https://lopa-x-ai.vercel.app/" target="_blank" rel="noopener">
+      <span class="proj-status live">● Live</span>
+      <span class="proj-emoji">🤖</span>
+      <h3 class="proj-title">LopaxAI</h3>
+      <p class="proj-tag">AI Tools Hub · Indian Audience</p>
+      <p class="proj-desc">A hub of AI-powered utilities tailored for Indian users — multiple tools, single clean interface, optimised for Hindi+English users.</p>
+      <div class="proj-stack"><span>Vanilla JS</span><span>Claude API</span><span>Vercel</span></div>
+      <span class="proj-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="proj-card" data-cat="games" href="https://lion-chess.vercel.app/" target="_blank" rel="noopener">
+      <span class="proj-status live">● Live</span>
+      <span class="proj-emoji">♟️</span>
+      <h3 class="proj-title">Lion Chess</h3>
+      <p class="proj-tag">Full Chess Game · AI Opponent</p>
+      <p class="proj-desc">Complete chess game with AI opponent, evaluation bar, multiple difficulties. Adsterra monetised, installable PWA, Android APK ready.</p>
+      <div class="proj-stack"><span>Canvas</span><span>Game AI</span><span>PWA</span><span>Adsterra</span></div>
+      <span class="proj-link">Play Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="proj-card" data-cat="apps" href="https://shubhcard.vercel.app/" target="_blank" rel="noopener">
+      <span class="proj-status live">● Live</span>
+      <span class="proj-emoji">📜</span>
+      <h3 class="proj-title">ShubhCard</h3>
+      <p class="proj-tag">Hindi Document Maker · ₹99/mo</p>
+      <p class="proj-desc">Hindi-first tool to create 12+ document types — bio-data, wedding cards, condolence cards. PDF export with a paid Razorpay subscription.</p>
+      <div class="proj-stack"><span>Vanilla JS</span><span>Razorpay</span><span>PDF</span><span>Hindi UI</span></div>
+      <span class="proj-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="proj-card" data-cat="apps" href="https://zenfit-hazel.vercel.app/" target="_blank" rel="noopener">
+      <span class="proj-status live">● Live</span>
+      <span class="proj-emoji">🏋️</span>
+      <h3 class="proj-title">ZenFit</h3>
+      <p class="proj-tag">Fitness Tracker · 143+ Indian Foods</p>
+      <p class="proj-desc">Bilingual fitness tracker (Hindi/English) with a database of 143+ Indian foods, 30/60/90-day programs, and full PWA support.</p>
+      <div class="proj-stack"><span>PWA</span><span>LocalStorage</span><span>Hindi/English</span></div>
+      <span class="proj-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="proj-card" data-cat="tools" href="https://github.com/lokesh913125" target="_blank" rel="noopener">
+      <span class="proj-status dev">In dev</span>
+      <span class="proj-emoji">📄</span>
+      <h3 class="proj-title">ResumeKit Pro</h3>
+      <p class="proj-tag">AI Resume Builder · ₹49/mo</p>
+      <p class="proj-desc">4 ATS-optimised templates, Claude API for content suggestions, ATS checker scoring, Razorpay monthly subscription.</p>
+      <div class="proj-stack"><span>Claude API</span><span>Razorpay</span><span>PDF</span><span>ATS</span></div>
+      <span class="proj-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="proj-card" data-cat="games" href="https://github.com/lokesh913125" target="_blank" rel="noopener">
+      <span class="proj-status dev">In dev</span>
+      <span class="proj-emoji">🎮</span>
+      <h3 class="proj-title">GameHub</h3>
+      <p class="proj-tag">30+ Browser Games · Single HTML File</p>
+      <p class="proj-desc">A whole arcade in one HTML file — 30+ games, AI opponents, 15 achievements, leaderboards. Zero dependencies, pure vanilla JS.</p>
+      <div class="proj-stack"><span>Canvas</span><span>Vanilla JS</span><span>Achievements</span></div>
+      <span class="proj-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="proj-card" data-cat="games" href="https://github.com/lokesh913125" target="_blank" rel="noopener">
+      <span class="proj-status dev">In dev</span>
+      <span class="proj-emoji">🏏</span>
+      <h3 class="proj-title">Cricket Career Game</h3>
+      <p class="proj-tag">IPL Career Mode · Story Chapters</p>
+      <p class="proj-desc">Play through an IPL career — timing-based batting, XP system, partnerships, story chapters. Lokesh Patel #21 unlocked.</p>
+      <div class="proj-stack"><span>Canvas</span><span>Story Mode</span><span>Game Design</span></div>
+      <span class="proj-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="proj-card" data-cat="games" href="https://github.com/lokesh913125" target="_blank" rel="noopener">
+      <span class="proj-status dev">In dev</span>
+      <span class="proj-emoji">🌙</span>
+      <h3 class="proj-title">Dreamwalker</h3>
+      <p class="proj-tag">Atmospheric Browser Game · 15 Levels</p>
+      <p class="proj-desc">Dark, atmospheric platformer with deep purple UI and 15 hand-designed levels. Targeting CrazyGames publishing.</p>
+      <div class="proj-stack"><span>Canvas</span><span>Atmospheric</span><span>CrazyGames</span></div>
+      <span class="proj-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="proj-card" data-cat="games" href="https://github.com/lokesh913125" target="_blank" rel="noopener">
+      <span class="proj-status dev">In dev</span>
+      <span class="proj-emoji">🥊</span>
+      <h3 class="proj-title">SHADOWFIST</h3>
+      <p class="proj-tag">3D Superhero Fight Game · Three.js</p>
+      <p class="proj-desc">3D fighting game built with Three.js — 8 story chapters, combo system, custom stages. v2 currently 65% complete.</p>
+      <div class="proj-stack"><span>Three.js</span><span>3D</span><span>WebGL</span><span>CrazyGames</span></div>
+      <span class="proj-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="proj-card" data-cat="games" href="https://github.com/lokesh913125" target="_blank" rel="noopener">
+      <span class="proj-status dev">In dev</span>
+      <span class="proj-emoji">💰</span>
+      <h3 class="proj-title">Poor to Rich</h3>
+      <p class="proj-tag">Hindi Idle Life Simulator</p>
+      <p class="proj-desc">Tap-to-earn idle simulator in Hindi — 12 ranks, relationship system, deep progression. From street kid to billionaire.</p>
+      <div class="proj-stack"><span>Idle</span><span>Hindi UI</span><span>Progression</span></div>
+      <span class="proj-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+  </div>
+</section>
+
+<!-- HIRE / FREELANCE -->
+<section id="hire" class="wrap">
+  <div class="reveal">
+    <div class="eyebrow">hire me</div>
+    <h2 class="stit"><span class="scramble">Freelance services.</span></h2>
+    <p class="lede">Honest pricing. Fast delivery. Real working products — not Figma mockups. All bookings via WhatsApp.</p>
+  </div>
+
+  <div class="price-grid reveal-stagger">
+
+    <div class="price-card">
+      <div class="price-icon">📄</div>
+      <div class="price-name">Landing Page</div>
+      <div class="price-amt">₹499 – 999</div>
+      <div class="price-time">⏱ 1–2 days delivery</div>
+      <ul class="price-feat">
+        <li>Single-page responsive design</li>
+        <li>Custom animations</li>
+        <li>Mobile-first build</li>
+        <li>Vercel deployment included</li>
+      </ul>
+      <a href="https://wa.me/919131257780?text=Hi%20Lokesh%2C%20I%20want%20a%20Landing%20Page" target="_blank" rel="noopener" class="price-btn magnetic">Book on WhatsApp →</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-icon">⚙️</div>
+      <div class="price-name">Web App / Tool</div>
+      <div class="price-amt">₹999 – 2,499</div>
+      <div class="price-time">⏱ 2–4 days delivery</div>
+      <ul class="price-feat">
+        <li>Custom interactive tool</li>
+        <li>LocalStorage data</li>
+        <li>PWA installable</li>
+        <li>Vanilla JS (zero deps)</li>
+      </ul>
+      <a href="https://wa.me/919131257780?text=Hi%20Lokesh%2C%20I%20want%20a%20Web%20App" target="_blank" rel="noopener" class="price-btn magnetic">Book on WhatsApp →</a>
+    </div>
+
+    <div class="price-card popular">
+      <div class="price-icon">📜</div>
+      <div class="price-name">Hindi Document Tool</div>
+      <div class="price-amt">₹999 – 1,999</div>
+      <div class="price-time">⏱ 2–3 days delivery</div>
+      <ul class="price-feat">
+        <li>Bilingual (Hindi/English) UI</li>
+        <li>PDF export ready</li>
+        <li>Razorpay subscription option</li>
+        <li>Indian market optimised</li>
+      </ul>
+      <a href="https://wa.me/919131257780?text=Hi%20Lokesh%2C%20I%20want%20a%20Hindi%20Document%20Tool" target="_blank" rel="noopener" class="price-btn magnetic">Book on WhatsApp →</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-icon">🎮</div>
+      <div class="price-name">Browser Game</div>
+      <div class="price-amt">₹1,499 – 3,999</div>
+      <div class="price-time">⏱ 3–7 days delivery</div>
+      <ul class="price-feat">
+        <li>Canvas / Three.js based</li>
+        <li>AI opponent built-in</li>
+        <li>Achievements + leaderboard</li>
+        <li>CrazyGames-ready format</li>
+      </ul>
+      <a href="https://wa.me/919131257780?text=Hi%20Lokesh%2C%20I%20want%20a%20Browser%20Game" target="_blank" rel="noopener" class="price-btn magnetic">Book on WhatsApp →</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-icon">🤖</div>
+      <div class="price-name">AI-Powered Tool</div>
+      <div class="price-amt">₹2,499 – 4,999</div>
+      <div class="price-time">⏱ 4–7 days delivery</div>
+      <ul class="price-feat">
+        <li>Claude API integration</li>
+        <li>Custom prompts engineered</li>
+        <li>Subscription/paywall option</li>
+        <li>Production-ready hosting</li>
+      </ul>
+      <a href="https://wa.me/919131257780?text=Hi%20Lokesh%2C%20I%20want%20an%20AI%20Tool" target="_blank" rel="noopener" class="price-btn magnetic">Book on WhatsApp →</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-icon">🎨</div>
+      <div class="price-name">Full Portfolio Site</div>
+      <div class="price-amt">₹1,999 – 3,999</div>
+      <div class="price-time">⏱ 3–5 days delivery</div>
+      <ul class="price-feat">
+        <li>Premium animations (like this)</li>
+        <li>Custom dark/light theme</li>
+        <li>Cinematic hero + projects</li>
+        <li>SEO + Open Graph done</li>
+      </ul>
+      <a href="https://wa.me/919131257780?text=Hi%20Lokesh%2C%20I%20want%20a%20Portfolio%20Website" target="_blank" rel="noopener" class="price-btn magnetic">Book on WhatsApp →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- UPCOMING -->
+<section id="upcoming" class="wrap">
+  <div class="reveal">
+    <div class="eyebrow">in the pipeline</div>
+    <h2 class="stit"><span class="scramble">Upcoming projects.</span></h2>
+    <p class="lede">Ten things I'm currently building. Honest progress percentages — no marketing fluff.</p>
+  </div>
+
+  <div class="upcoming-grid reveal-stagger" id="upGrid">
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">01</div><div class="up-name">SHADOWFIST v2</div><div class="up-pct">65%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="65"></div></div>
+      <div class="up-desc">Three.js 3D fight game · 8 chapters · combat overhaul</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">02</div><div class="up-name">ZenFit Android</div><div class="up-pct">40%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="40"></div></div>
+      <div class="up-desc">Play Store launch · native wrapping · push notifications</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">03</div><div class="up-name">LopaxAI v2</div><div class="up-pct">30%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="30"></div></div>
+      <div class="up-desc">Bigger AI tool catalog · user accounts · premium tier</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">04</div><div class="up-name">IPL Fantasy App</div><div class="up-pct">20%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="20"></div></div>
+      <div class="up-desc">Fantasy team builder · AI predictions · leaderboards</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">05</div><div class="up-name">Hindi Story AI</div><div class="up-pct">15%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="15"></div></div>
+      <div class="up-desc">Claude API · generates Hindi stories &amp; shayari</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">06</div><div class="up-name">FreelanceKit India</div><div class="up-pct">10%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="10"></div></div>
+      <div class="up-desc">Invoice maker · GST calculator · contracts in Hindi</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">07</div><div class="up-name">AstroAI India</div><div class="up-pct">8%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="8"></div></div>
+      <div class="up-desc">Hindi astrology &amp; horoscope · daily predictions</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">08</div><div class="up-name">BeatMaker India</div><div class="up-pct">5%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="5"></div></div>
+      <div class="up-desc">Browser music maker · desi loops &amp; tabla samples</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">09</div><div class="up-name">StudyBuddy CG</div><div class="up-pct">5%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="5"></div></div>
+      <div class="up-desc">Chhattisgarh students · notes · past papers · AI tutor</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-head"><div class="up-num">10</div><div class="up-name">HOPE Manga Universe</div><div class="up-pct">12%</div></div>
+      <div class="up-track"><div class="up-bar" data-pct="12"></div></div>
+      <div class="up-desc">700+ episodes planned · Aryan · 12 sagas · powers system</div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section id="goals" class="wrap">
+  <div class="reveal">
+    <div class="eyebrow">north stars</div>
+    <h2 class="stit"><span class="scramble">Goals I'm chasing.</span></h2>
+    <p class="lede">Everything I'm building points to these eight outcomes.</p>
+  </div>
+
+  <div class="goals-grid reveal-stagger">
+    <div class="goal-card"><div class="goal-icon">💸</div><div class="goal-text"><b>Passive Income at Scale</b>AdSense, Razorpay subscriptions &amp; affiliate revenue across all live apps.</div></div>
+    <div class="goal-card"><div class="goal-icon">📱</div><div class="goal-text"><b>ZenFit on Play Store</b>Android launch with native push notifications &amp; offline mode.</div></div>
+    <div class="goal-card"><div class="goal-icon">🎮</div><div class="goal-text"><b>Publish on CrazyGames</b>Get SHADOWFIST &amp; Dreamwalker featured globally.</div></div>
+    <div class="goal-card"><div class="goal-icon">📸</div><div class="goal-text"><b>Grow @lokesh__patel.0</b>Build Instagram + Pinterest presence — quotes &amp; portfolio.</div></div>
+    <div class="goal-card"><div class="goal-icon">🤖</div><div class="goal-text"><b>AI Product Suite</b>A full lineup of Claude-powered tools for Indian users.</div></div>
+    <div class="goal-card"><div class="goal-icon">📚</div><div class="goal-text"><b>HOPE Manga Universe</b>700+ episodes · immortal protagonist Aryan · 12 sagas.</div></div>
+    <div class="goal-card"><div class="goal-icon">🌍</div><div class="goal-text"><b>Go Global</b>Take Indian-built products onto the world stage.</div></div>
+    <div class="goal-card"><div class="goal-icon">🚀</div><div class="goal-text"><b>Full-time Independent</b>Quit any plan-B and ship products as my full job.</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="wrap">
+  <div class="reveal">
+    <div class="eyebrow">let's talk</div>
+    <h2 class="stit"><span class="scramble">Build something together.</span></h2>
+    <p class="lede">Got an idea, a project, or just want to nerd out about indie hacking? I reply within hours on WhatsApp.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="cwa reveal-l">
+      <div class="cwa-eyebrow">primary channel</div>
+      <h3 class="cwa-h">WhatsApp is the fastest way to reach me.</h3>
+      <p class="cwa-p">Tell me what you're trying to build. I'll send a price + timeline within a few hours. No agency back-and-forth — you talk to the person who builds it.</p>
+      <a href="https://wa.me/919131257780?text=Hi%20Lokesh%2C%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="cwa-btn magnetic">
+        💬 Chat on WhatsApp
+      </a>
+    </div>
+
+    <div class="contact-links reveal-stagger">
+      <a class="contact-link" href="mailto:lokeshluckypatel531@gmail.com">
+        <div class="cl-icon">✉️</div>
+        <div><div class="cl-key">Email</div><div class="cl-val">lokeshluckypatel531@gmail.com</div></div>
+      </a>
+      <a class="contact-link" href="https://github.com/lokesh913125" target="_blank" rel="noopener">
+        <div class="cl-icon">💻</div>
+        <div><div class="cl-key">GitHub</div><div class="cl-val">@lokesh913125</div></div>
+      </a>
+      <a class="contact-link" href="https://www.instagram.com/lokesh__patel.0?igsh=c3N1eGZpZWI4cTFq" target="_blank" rel="noopener">
+        <div class="cl-icon">📸</div>
+        <div><div class="cl-key">Instagram</div><div class="cl-val">@lokesh__patel.0</div></div>
+      </a>
+      <a class="contact-link" href="https://www.pinterest.com/lokeshluckypatel531" target="_blank" rel="noopener">
+        <div class="cl-icon">📌</div>
+        <div><div class="cl-key">Pinterest</div><div class="cl-val">@lokeshluckypatel531</div></div>
+      </a>
+      <a class="contact-link" href="tel:+919131257780">
+        <div class="cl-icon">📞</div>
+        <div><div class="cl-key">Phone</div><div class="cl-val">+91 91312 57780</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Designed &amp; built solo by <b>Lokesh Patel</b> · Single-file vanilla JS · Hosted on Vercel · <span class="heart">💜</span></p>
+    <p style="margin-top:8px; font-size:11px; color:var(--ink-mute); letter-spacing:.1em; text-transform:uppercase;">
+      Try the Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A
+    </p>
+  </div>
+</footer>
+
+<!-- Suggestion widget -->
+<button class="sg-btn magnetic" id="sgBtn" type="button">💡 Got an Idea?</button>
+<div class="sg-modal" id="sgModal">
+  <div class="sg-card">
+    <h3>💡 Drop me an idea</h3>
+    <p>Suggestion goes straight to my WhatsApp. Be brutal — I love feedback.</p>
+    <textarea id="sgText" placeholder="Hey Lokesh, here's an idea for your portfolio…"></textarea>
+    <div class="sg-actions">
+      <button class="sg-cancel" id="sgCancel" type="button">Cancel</button>
+      <button class="sg-send" id="sgSend" type="button">Send to WhatsApp →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Easter egg -->
+<div class="egg" id="egg">
+  <div class="egg-emoji">🎮</div>
+  <h2>You found the Easter Egg! 🎉</h2>
+  <p>Konami Code Master! Lokesh approves 💜</p>
+</div>
+
+<!-- Mini game -->
+<div class="mg" id="mg">
+  <h2 style="font-size:28px; font-weight:900; letter-spacing:-.02em; margin-bottom:6px;">Catch the Star ⭐</h2>
+  <p style="color:var(--ink-dim); font-size:13px; margin-bottom:18px;">Tap the stars before they vanish. 20 seconds. Beat your high score.</p>
+  <div class="mg-head">
+    <div class="mg-stat">⏱ <b id="mgTime">20</b>s</div>
+    <div class="mg-stat">⭐ <b id="mgScore">0</b></div>
+    <div class="mg-stat">🏆 Best <b id="mgBest">0</b></div>
+  </div>
+  <canvas class="mg-canvas" id="mgCanvas" width="600" height="400"></canvas>
+  <div class="mg-result" id="mgResult"></div>
+  <div class="mg-actions">
+    <button class="mg-btn primary magnetic" id="mgPlay" type="button">▶ Play</button>
+    <button class="mg-btn ghost magnetic" id="mgClose" type="button">✕ Close</button>
+  </div>
+</div>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   ALL INTERACTIONS · vanilla JS · no deps
+   ═══════════════════════════════════════════════════════════ */
+
+(() => {
+'use strict';
+
+const $  = (s, c=document) => c.querySelector(s);
+const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+const isTouch = matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+/* ---------- 1. PAGE LOADER (hide after 2s) ---------- */
+window.addEventListener('load', () => {
+  setTimeout(() => $('#loader').classList.add('gone'), 2000);
+});
+// Failsafe — hide after 4s no matter what
+setTimeout(() => $('#loader')?.classList.add('gone'), 4000);
+
+
+/* ---------- 2. CUSTOM CURSOR ---------- */
+if (!isTouch) {
+  const dot = $('#cDot'), ring = $('#cRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+  });
+  function loop() {
+    rx += (mx - rx) * 0.18;
+    ry += (my - ry) * 0.18;
+    ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  }
+  loop();
+  // Hover state on interactives
+  $$('a,button,.proj-card,.info-row,textarea,.tag,.filter-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.classList.add('hover'); ring.classList.add('hover'); });
+    el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
+  });
+}
+
+
+/* ---------- 3. PARTICLE BACKGROUND (40 purple dots) ---------- */
+(() => {
+  const c = $('#particleCanvas'), ctx = c.getContext('2d');
+  let w = 0, h = 0, parts = [];
+  function resize() {
+    w = c.width = innerWidth * devicePixelRatio;
+    h = c.height = innerHeight * devicePixelRatio;
+    c.style.width = innerWidth + 'px';
+    c.style.height = innerHeight + 'px';
+  }
+  function init() {
+    parts = Array.from({length:40}, () => ({
+      x: Math.random()*w, y: Math.random()*h,
+      vx: (Math.random()-.5)*.4*devicePixelRatio,
+      vy: (Math.random()-.5)*.4*devicePixelRatio,
+      r: (Math.random()*1.6+0.6)*devicePixelRatio,
+      a: Math.random()*0.5+0.3
+    }));
+  }
+  function tick() {
+    ctx.clearRect(0,0,w,h);
+    parts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x<0||p.x>w) p.vx*=-1;
+      if (p.y<0||p.y>h) p.vy*=-1;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = `rgba(163,148,248,${p.a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(tick);
+  }
+  resize(); init(); tick();
+  addEventListener('resize', () => { resize(); init(); });
+})();
+
+
+/* ---------- 4. SCROLL PROGRESS BAR ---------- */
+const sp = $('#scrollProgress');
+addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+  sp.style.width = pct + '%';
+}, { passive:true });
+
+
+/* ---------- 5. IST CLOCK (every second) ---------- */
+const clockEl = $('#clock');
+function tickClock() {
+  const now = new Date();
+  // Convert to IST (UTC+5:30)
+  const utc = now.getTime() + now.getTimezoneOffset()*60000;
+  const ist = new Date(utc + 5.5*60*60000);
+  const hh = String(ist.getHours()).padStart(2,'0');
+  const mm = String(ist.getMinutes()).padStart(2,'0');
+  const ss = String(ist.getSeconds()).padStart(2,'0');
+  clockEl.textContent = `${hh}:${mm}:${ss}`;
+}
+tickClock(); setInterval(tickClock, 1000);
+
+
+/* ---------- 6. VISITOR COUNTER (localStorage) ---------- */
+(() => {
+  const KEY = 'lp_visitor_count';
+  let n = parseInt(localStorage.getItem(KEY) || '0', 10);
+  if (!n) n = 4213; // base
+  // Increment by random 1–3 on each fresh visit
+  if (!sessionStorage.getItem('lp_seen')) {
+    n += Math.floor(Math.random()*3)+1;
+    localStorage.setItem(KEY, n);
+    sessionStorage.setItem('lp_seen', '1');
+  }
+  $('#visitorCount').textContent = n.toLocaleString('en-IN');
+})();
+
+
+/* ---------- 7. AVAILABILITY TOGGLE ---------- */
+const availBtn = $('#availToggle');
+let busy = localStorage.getItem('lp_busy') === '1';
+function paintAvail() {
+  if (busy) {
+    availBtn.textContent = '🔴 Currently Busy';
+    availBtn.classList.add('busy');
+  } else {
+    availBtn.textContent = '✅ Available for Freelance';
+    availBtn.classList.remove('busy');
+  }
+}
+paintAvail();
+availBtn.addEventListener('click', () => {
+  busy = !busy;
+  localStorage.setItem('lp_busy', busy ? '1' : '0');
+  paintAvail();
+});
+
+
+/* ---------- 8. THEME TOGGLE ---------- */
+const themeBtn = $('#themeToggle');
+const saved = localStorage.getItem('lp_theme');
+if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+function paintTheme() {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  themeBtn.textContent = isLight ? '☀️' : '🌙';
+}
+paintTheme();
+themeBtn.addEventListener('click', () => {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  if (isLight) document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme', 'light');
+  localStorage.setItem('lp_theme', isLight ? 'dark' : 'light');
+  paintTheme();
+});
+
+
+/* ---------- 9. HERO 3D TILT ---------- */
+(() => {
+  if (isTouch) return;
+  const card = $('#tiltCard');
+  if (!card) return;
+  const wrap = card.parentElement;
+  wrap.addEventListener('mousemove', e => {
+    const r = wrap.getBoundingClientRect();
+    const x = (e.clientX - r.left)/r.width - 0.5;
+    const y = (e.clientY - r.top)/r.height - 0.5;
+    card.style.transform = `rotateY(${x*14}deg) rotateX(${-y*14}deg)`;
+  });
+  wrap.addEventListener('mouseleave', () => {
+    card.style.transform = 'rotateY(0) rotateX(0)';
+  });
+})();
+
+
+/* ---------- 10. TYPING EFFECT (6 phrases) ---------- */
+(() => {
+  const el = $('#typing');
+  const phrases = [
+    'Web Developer',
+    'Game Builder',
+    'AI Tool Creator',
+    'Hindi App Maker',
+    'Indie Hacker',
+    'Full-time Solo Shipper'
+  ];
+  let pi=0, ci=0, deleting=false;
+  function loop() {
+    const cur = phrases[pi];
+    if (!deleting) {
+      el.textContent = cur.slice(0, ++ci);
+      if (ci === cur.length) { deleting = true; setTimeout(loop, 1600); return; }
+    } else {
+      el.textContent = cur.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi+1) % phrases.length; }
+    }
+    setTimeout(loop, deleting ? 32 : 70);
+  }
+  loop();
+})();
+
+
+/* ---------- 11. STATS COUNTER ---------- */
+function animateCount(el, target, dur=1400) {
+  const start = performance.now();
+  function frame(t) {
+    const p = Math.min((t - start) / dur, 1);
+    const eased = 1 - Math.pow(1-p, 3);
+    el.textContent = Math.floor(eased * target);
+    if (p < 1) requestAnimationFrame(frame);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(frame);
+}
+
+
+/* ---------- 12. INTERSECTION OBSERVER (reveals + counters + bars + scramble) ---------- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target;
+    el.classList.add('in');
+
+    // Skill bars
+    $$('.skill-bar', el).forEach(b => {
+      const p = b.dataset.pct;
+      requestAnimationFrame(() => b.style.width = p + '%');
+    });
+    // Upcoming bars
+    $$('.up-bar', el).forEach(b => {
+      const p = b.dataset.pct;
+      requestAnimationFrame(() => b.style.width = p + '%');
+    });
+    // Counters
+    $$('[data-count]', el).forEach(c => {
+      const n = +c.dataset.count;
+      animateCount(c, n);
+    });
+    // Scramble
+    $$('.scramble', el).forEach(s => {
+      if (s.dataset.scrambled) return;
+      s.dataset.scrambled = '1';
+      scramble(s);
+    });
+
+    io.unobserve(el);
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+$$('.reveal,.reveal-stagger,.reveal-l,.skill-grid,.upcoming-grid,.stats-row,.stit')
+  .forEach(el => io.observe(el));
+
+
+/* ---------- 13. TEXT SCRAMBLE ---------- */
+function scramble(el) {
+  const final = el.textContent;
+  const chars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉ#$%&*=+0123456789';
+  let revealed = 0;
+  const total = final.length;
+  let frame = 0;
+  function tick() {
+    let out = '';
+    for (let i=0; i<total; i++) {
+      if (i < Math.floor(revealed)) out += final[i];
+      else if (final[i] === ' ') out += ' ';
+      else out += chars[Math.floor(Math.random()*chars.length)];
+    }
+    el.textContent = out;
+    revealed += 1.5;
+    frame++;
+    if (revealed < total) setTimeout(tick, 28);
+    else el.textContent = final;
+  }
+  tick();
+}
+
+
+/* ---------- 14. PROJECT CARD MOUSE GLOW + FILTER ---------- */
+$$('.proj-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+$$('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    $$('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    $$('.proj-card').forEach(c => {
+      const show = f === 'all' || c.dataset.cat === f;
+      c.style.display = show ? '' : 'none';
+    });
+  });
+});
+
+
+/* ---------- 15. NAV ACTIVE LINK ON SCROLL ---------- */
+const navLinks = $$('#nav a');
+const sections = navLinks.map(l => $(l.getAttribute('href')));
+function updateNav() {
+  const y = scrollY + 200;
+  let active = 0;
+  sections.forEach((s, i) => { if (s && s.offsetTop <= y) active = i; });
+  navLinks.forEach((l,i) => l.classList.toggle('active', i === active));
+}
+addEventListener('scroll', updateNav, { passive:true });
+updateNav();
+
+
+/* ---------- 16. MAGNETIC BUTTONS ---------- */
+if (!isTouch) {
+  $$('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - (r.left + r.width/2);
+      const y = e.clientY - (r.top + r.height/2);
+      btn.style.transform = `translate(${x*0.25}px, ${y*0.35}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0,0)';
+    });
+  });
+}
+
+
+/* ---------- 17. SUGGESTION WIDGET ---------- */
+const sgBtn = $('#sgBtn'), sgModal = $('#sgModal'), sgText = $('#sgText');
+sgBtn.addEventListener('click', () => { sgModal.classList.add('show'); sgText.focus(); });
+$('#sgCancel').addEventListener('click', () => sgModal.classList.remove('show'));
+sgModal.addEventListener('click', e => { if (e.target === sgModal) sgModal.classList.remove('show'); });
+$('#sgSend').addEventListener('click', () => {
+  const txt = sgText.value.trim();
+  if (!txt) { sgText.focus(); return; }
+  const msg = encodeURIComponent(`💡 Portfolio Suggestion: ${txt}\n— Sent from lokesh.dev`);
+  window.open(`https://wa.me/919131257780?text=${msg}`, '_blank');
+  sgText.value = '';
+  sgModal.classList.remove('show');
+});
+
+
+/* ---------- 18. KONAMI CODE EASTER EGG ---------- */
+(() => {
+  const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let buf = [];
+  addEventListener('keydown', e => {
+    buf.push(e.key.length === 1 ? e.key.toLowerCase() : e.key);
+    if (buf.length > code.length) buf.shift();
+    if (buf.length === code.length && buf.every((k,i) => k === code[i])) {
+      const egg = $('#egg');
+      egg.classList.add('show');
+      setTimeout(() => egg.classList.remove('show'), 4000);
+      buf = [];
+    }
+  });
+})();
+
+
+/* ═══════════════════════════════════════════════════════════
+   19. MINI GAME — Catch the Star ⭐
+   Canvas-based. 20s timer. Stars spawn, click/tap to catch.
+   ═══════════════════════════════════════════════════════════ */
+(() => {
+  const mg = $('#mg');
+  const canvas = $('#mgCanvas');
+  const ctx = canvas.getContext('2d');
+  const $time = $('#mgTime'), $score = $('#mgScore'), $best = $('#mgBest'), $result = $('#mgResult');
+  const $play = $('#mgPlay'), $close = $('#mgClose');
+
+  let stars = [], score = 0, time = 20, running = false, raf, timer;
+  let best = parseInt(localStorage.getItem('lp_mg_best') || '0', 10);
+  $best.textContent = best;
+
+  // Resize canvas for crisp rendering
+  function fitCanvas() {
+    const maxW = Math.min(innerWidth - 40, 700);
+    const ratio = 600/400;
+    canvas.style.width = maxW + 'px';
+    canvas.style.height = (maxW/ratio) + 'px';
+  }
+  fitCanvas();
+  addEventListener('resize', fitCanvas);
+
+  function spawnStar() {
+    if (!running) return;
+    stars.push({
+      x: 30 + Math.random() * 540,
+      y: 30 + Math.random() * 340,
+      r: 18 + Math.random()*8,
+      life: 0,
+      maxLife: 70 + Math.random()*30,
+      hue: 250 + Math.random()*40
+    });
+    setTimeout(spawnStar, 350 + Math.random()*350);
+  }
+
+  function drawStar(s, alpha=1) {
+    ctx.save();
+    ctx.translate(s.x, s.y);
+    ctx.rotate((s.life/30)*Math.PI*2);
+    ctx.beginPath();
+    for (let i=0; i<10; i++) {
+      const r = i % 2 === 0 ? s.r : s.r*0.45;
+      const a = (i/10)*Math.PI*2 - Math.PI/2;
+      ctx.lineTo(Math.cos(a)*r, Math.sin(a)*r);
+    }
+    ctx.closePath();
+    ctx.shadowBlur = 18;
+    ctx.shadowColor = `hsla(${s.hue},80%,75%,${alpha})`;
+    ctx.fillStyle = `hsla(${s.hue},80%,75%,${alpha})`;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function loop() {
+    ctx.clearRect(0,0,600,400);
+    // Soft starfield
+    ctx.fillStyle = 'rgba(124,106,245,0.04)';
+    for (let i=0;i<30;i++) ctx.fillRect((i*97)%600, (i*61+37)%400, 2, 2);
+
+    stars = stars.filter(s => s.life < s.maxLife);
+    stars.forEach(s => {
+      s.life++;
+      const a = s.life < 10 ? s.life/10 : (s.life > s.maxLife-15 ? (s.maxLife - s.life)/15 : 1);
+      drawStar(s, a);
+    });
+    if (running) raf = requestAnimationFrame(loop);
+  }
+
+  function pointToCanvas(e) {
+    const r = canvas.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx * (600/r.width), y: cy * (400/r.height) };
+  }
+
+  function onTap(e) {
+    if (!running) return;
+    e.preventDefault();
+    const { x, y } = pointToCanvas(e);
+    for (let i = stars.length-1; i>=0; i--) {
+      const s = stars[i];
+      const d = Math.hypot(s.x - x, s.y - y);
+      if (d < s.r + 8) {
+        stars.splice(i, 1);
+        score++;
+        $score.textContent = score;
+        // tiny pop
+        ctx.beginPath();
+        ctx.arc(x, y, 25, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        ctx.fill();
+        return;
+      }
+    }
+  }
+  canvas.addEventListener('click', onTap);
+  canvas.addEventListener('touchstart', onTap, { passive:false });
+
+  function start() {
+    score = 0; time = 20; running = true; stars = [];
+    $score.textContent = '0'; $time.textContent = '20'; $result.textContent = '';
+    $play.textContent = '⏸ Restart';
+    spawnStar();
+    loop();
+    timer = setInterval(() => {
+      time--;
+      $time.textContent = time;
+      if (time <= 0) end();
+    }, 1000);
+  }
+  function end() {
+    running = false;
+    clearInterval(timer);
+    cancelAnimationFrame(raf);
+    if (score > best) {
+      best = score;
+      localStorage.setItem('lp_mg_best', best);
+      $best.textContent = best;
+      $result.innerHTML = `<span class="grad">🏆 New best: ${score}!</span>`;
+    } else {
+      $result.innerHTML = `Final score: <span class="grad">${score}</span>`;
+    }
+    $play.textContent = '▶ Play Again';
+  }
+
+  $('#openGame').addEventListener('click', () => {
+    mg.classList.add('show');
+    fitCanvas();
+    ctx.clearRect(0,0,600,400);
+    $result.textContent = 'Press Play to start';
+  });
+  $play.addEventListener('click', () => { if (running) end(); start(); });
+  $close.addEventListener('click', () => {
+    running = false; clearInterval(timer); cancelAnimationFrame(raf);
+    mg.classList.remove('show');
+  });
+})();
+
+
+/* ---------- 20. ESC KEY closes overlays ---------- */
+addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    $('#sgModal').classList.remove('show');
+    $('#mg').classList.remove('show');
+    $('#egg').classList.remove('show');
+  }
+});
+
+})();
+</script>
+
+</body>
+</html>
